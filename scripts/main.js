@@ -60,4 +60,15 @@
 
         console.log(filterMaterial)
 
+    // 6.Show me how to calculate how many items were made by their sellers. Please console.log your answer.
+    const personallyMade = items.filter(function(item){
+        return (item.who_made === 'i_did')
+    }).map(function(item){
+        return item.title
+    })
+    const personalLength = `${personallyMade.length} were made by their sellers.`
+    
+    console.log(personalLength)
+
+
 })();
