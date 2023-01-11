@@ -39,6 +39,7 @@
     console.log(onlyGBP);
 
     //4. Show me how to find which items are made of wood. Please console.log the ones you find.
+    
     // const onlyWood = items.filter(function(item){
     //     var filteredWood = item.materials.split (' ')
     //     return filteredWood.filter(function(wood){
@@ -46,19 +47,40 @@
     //     }).length === filtersArray.length;
     //     });
     // console.log(onlyWood)
+    
+    //Solution
+    const itemsMadeOfWood = items.filter(function(item){
+        return item.materials.includes('wood'); //Evaluates to boolean in filtered array
+    }).map(function(item){
+        return item.title
+    }).forEach(function(title){
+        console.log(`${title}\n`)
+    })
+
+
 
     //5. Show me how to find which items are made of eight or more materials. Please console.log the ones you find.
 
-    const filterMaterial = items.filter(function(item){
-        return item.materials.length >= 8;
-        }).map(function(item){
-            const bigMatName = item.title;
-            const bigMatList = item.materials;
-            return `${bigMatName} has ${bigMatList.length} materials:
-            ${bigMatList}`;
-        })
+    // const filterMaterial = items.filter(function(item){
+    //     return item.materials.length >= 8;
+    //     }).map(function(item){
+    //         const bigMatName = item.title;
+    //         const bigMatList = item.materials;
+    //         return `${bigMatName} has ${bigMatList.length} materials:
+    //         ${bigMatList}`;
+    //     })
 
-        console.log(filterMaterial)
+        // console.log(filterMaterial)
+        //Solution
+         const filterMaterial = items.filter(function(item){
+             return item.materials.length >= 8;
+         }).forEach(function(item){
+             console.log(`${item.title}\n`)
+         })
+        
+        items.materials.forEach(function(material){
+          console.log(`${material}\n`)
+        })
 
     // 6.Show me how to calculate how many items were made by their sellers. Please console.log your answer.
     const personallyMade = items.filter(function(item){
