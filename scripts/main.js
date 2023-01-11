@@ -2,8 +2,6 @@
     'use strict';
 
     //1. Show me how to calculate the average price of all items listed in USD. Please console.log the average.
-
-    
     const onlyUSD = items.filter(function(item){
         return item.currency_code === 'USD';
     })
@@ -40,8 +38,26 @@
     })
     console.log(onlyGBP);
 
+    //4. Show me how to find which items are made of wood. Please console.log the ones you find.
+    // const onlyWood = items.filter(function(item){
+    //     var filteredWood = item.materials.split (' ')
+    //     return filteredWood.filter(function(wood){
+    //         return filtersArray.indexOf(cat) > -1;
+    //     }).length === filtersArray.length;
+    //     });
+    // console.log(onlyWood)
 
+    //5. Show me how to find which items are made of eight or more materials. Please console.log the ones you find.
 
+    const filterMaterial = items.filter(function(item){
+        return item.materials.length >= 8;
+        }).map(function(item){
+            const bigMatName = item.title;
+            const bigMatList = item.materials;
+            return `${bigMatName} has ${bigMatList.length} materials:
+            ${bigMatList}`;
+        })
 
+        console.log(filterMaterial)
 
 })();
